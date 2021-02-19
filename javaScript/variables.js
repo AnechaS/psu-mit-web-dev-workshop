@@ -1,7 +1,7 @@
-// นี้คือ comment แบบ single-line
+// นี้คือ comment แบบบันทัดเดียว
 
 /*
- นี้คือ comment แบบ block
+ นี้คือ comment แบบหลายบันทัด
 */
 
 // ตัวแปร
