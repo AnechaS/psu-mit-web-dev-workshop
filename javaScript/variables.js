@@ -34,7 +34,7 @@ let num = 12345;
 console.log('var num is', num);
 console.log('var num type is', typeof num);
 
-// Bulean (true|false)
+// Boolean (true|false)
 let bool = true;
 console.log('var bool is', bool);
 console.log('var bool type is', typeof bool);
