@@ -86,3 +86,15 @@ $ npx parse-dashboard --config ./parse-dashboard-config.json
 ```
 
 ### 5. Setup scriptsใน package.json [ดูตัวอย่าง](https://github.com/AnechaS/mit-web-dev/blob/master/express-parse-server/package.json#L6-L9)
+
+5.1 คำสั่ง Run Server
+
+```bash
+$ npm start
+```
+
+5.2 คำสั่ง Run Parse Dashboard
+
+```bash
+npm run parse-dashboard
+```
