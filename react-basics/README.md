@@ -1,49 +1,58 @@
 # พื้นฐาน React
 
-## Install
-```bash
-$ npm install
-```
+> **คำเตือน:** ถ้าหากคัดลอกโฟลเดอร์นี้ อย่าลืมติดตั้ง Libray ทั้งหมดใน package.json โดยพิมพ์คำสั่ง `npm install` ด้วยนะครับ
 
-## Run
+## สร้างโปรเจค
 
 ```bash
-$ npm start
+npx create-react-app react-basic
+cd react-basic
 ```
 
+### คำสั่ง Run App
+
+```bash
+npm start
+```
 หลังจาก run app ให้เปิด Browser แล้วใส่ URL: [`http://localhost:3000`](http://localhost:3000)
 
-## Content
+## เนื้อหา React
 
 ### 1. Component
 
-#### Code 
+#### Code: 
 - [`src/c1-component/App.js`](./src/c1-component/App.js)
 
-### 2. React Bootstrap
+#### Docs:
+- [Components and Props](https://reactjs.org/docs/components-and-props.html)
+- [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+- [Handling Events](https://reactjs.org/docs/handling-events.html)
+- [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
+- [Lists and Keys](https://reactjs.org/docs/lists-and-keys.html)
 
-#### Install
+### 2. ใช้งาน Bootstrap ใน React
+
+#### Install [bootstrap](https://www.npmjs.com/package/bootstrap):
 
 ```bash
-$ npm i react-bootstrap bootstrap
+$ npm i --save bootstrap
 ```
 
-เมื่อติดตั้งสำเร็จ ให้เปิดไฟล์ `./src/index.js` แล้ว Import Css Boostrap
+เมื่อติดตั้งสำเร็จ ให้เปิดไฟล์ `./src/index.js` แล้ว Import Boostrap css
 
 ```javascript
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
-#### Docs
-- [bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
-- [react-bootstrap](https://react-bootstrap.github.io/getting-started/introduction)
-
-#### Code
+#### Code:
 - [`src/c2-bootstrap/App.js`](./src/c2-bootstrap/App.js)
 
-### 3. Router
+#### Docs:
+- [bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 
-#### Install
+### 3. Route
+
+#### Install [react-router-dom](https://www.npmjs.com/package/react-router-dom):
 
 ```bash
 $ npm i react-router-dom
@@ -53,15 +62,12 @@ $ npm i react-router-dom
 - [react-router-dom](https://reactrouter.com/web/example/basic)
 
 #### Code
-- [`src/c3-router/App.js`](./src/c3-router/App.js)
+- [`src/c3-route/App.js`](./src/c3-route/App.js)
 
-### 4. Auth
+### 4. Route Auth
 
 #### Code
-- [`src/c4-auth/App.js`](./src/c4-auth/App.js)
-
-#### Docs
-- [react-router-dom](https://reactrouter.com/web/example/basic)
+- [`src/c4-route-auth/App.js`](./src/c4-route-auth/App.js)
 
 ## เรียนรู้เพิ่มเติม
 
