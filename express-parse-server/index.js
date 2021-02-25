@@ -18,7 +18,7 @@ const api = ParseServer({
     appId: config.appId,
     databaseURI: config.databaseURI,
     serverURL: config.serverURL,
-    // cloud: __dirname + '/cloud/main.js',
+    cloud: __dirname + '/cloud/main.js',
     masterKey: config.masterKey,
     restAPIKey: config.restAPIKey
 });

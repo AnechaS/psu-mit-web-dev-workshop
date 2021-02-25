@@ -1,18 +1,19 @@
 {
-  "name": "api-server",
+  "name": "express-parse-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./index.js",
+    "parse-dashboard": "parse-dashboard --config ./parse-dashboard-config.json"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "parse": "^3.1.0",
     "parse-server": "^4.5.0"
+  },
+  "devDependencies": {
+    "parse-dashboard": "^2.1.0"
   }
 }

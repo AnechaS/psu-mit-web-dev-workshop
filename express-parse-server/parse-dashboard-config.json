@@ -1,0 +1,21 @@
+{
+    "apps": [
+        {
+            "serverURL": "http://localhost:1337/parse",
+            "appId": "qwertyuio",
+            "masterKey": "asdfghjk",
+            "appName": "Todo"
+        }
+    ],
+    "users": [
+        {
+            "user": "demo",
+            "pass": "demo",
+            "apps": [
+                {
+                    "appId": "qwertyuio"
+                }
+            ]
+        }
+    ]
+}
