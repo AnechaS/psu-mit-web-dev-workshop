@@ -8,11 +8,11 @@ console.log(isNumber('s'));
 
 const person = [
     {
-        name: 'Goku'
+        name: 'Goku',
     },
     {
-        name: 'Goten'
-    }
+        name: 'Goten',
+    },
 ];
 
 console.log(_.find(person, { name: 'Goku' }));
