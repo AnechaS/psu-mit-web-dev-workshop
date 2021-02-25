@@ -2,7 +2,7 @@
  * 1. State
  * 2. Props
  * 3. Handling events
- * 4. Component Lifecycle
+ * 4. Lifecycle
  * 5. Form @see https://reactjs.org/docs/forms.html
  */
 
