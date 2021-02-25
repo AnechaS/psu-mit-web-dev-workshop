@@ -1,10 +1,10 @@
 # สร้าง Web Service โดยใช้ Parse Server
 
-> **คำเตือน:** ถ้าหากคัดลอกโฟรเดอร์นี้ อย่าลืมติดตั้ง Libray ทั้งหมดใน package.json โดยพิมพ์คำสั่ง `npm install` ด้วยนะครับ
+> **คำเตือน:** ถ้าหากคัดลอกโฟลเดอร์นี้ อย่าลืมติดตั้ง Libray ทั้งหมดใน package.json โดยพิมพ์คำสั่ง `npm install` ด้วยนะครับ
 
 ## Web Service คือ ?
 
-เป็นระบบซอฟต์แวร์ที่ใช้ในการแลกเปลี่ยนข้อมูลระหว่างซอฟแวร์คอมพิวเตอร์ ผ่าน Potocal Http โดยใช้รูปแบบข้อมูล XML, JSON หรืออื่น ในการสื่อสารข้อมูล 
+เป็นระบบซอฟต์แวร์ที่ใช้ในการแลกเปลี่ยนข้อมูลระหว่างซอฟต์แวร์คอมพิวเตอร์ ผ่าน Potocal Http โดยใช้รูปแบบข้อมูล XML, JSON หรืออื่น ในการสื่อสารข้อมูล 
 
 - [ข้อมูล Web Service](https://en.wikipedia.org/wiki/Web_service)
 
@@ -24,14 +24,14 @@
 - [วิธีติดตั้ง MongoDB บน Local](https://docs.mongodb.com/manual/administration/install-community/)
 
 ### 2. MongoDB Compass
-- [ดาวห์โหลดไฟล์ติดตั้ง](https://www.mongodb.com/try/download/compass)
+- [ดาวน์โหลดไฟล์ติดตั้ง](https://www.mongodb.com/try/download/compass)
 
 ### 3. Postman (โปรแกรมทดสอบ APIs) <small>>>ใช้ได้บน Cloud และ Local<<</small>
 - [Postman](https://www.postman.com/)
 
-## วิธีสร้างโปรเจ็ค
+## วิธีสร้างโปรเจค
 
-### 1. สร้างโฟรเดอร์ และตั้งค่า `package.json`
+### 1. สร้างโฟลเดอร์ และตั้งค่า `package.json`
 
 ```bash
 mkdir express-parse-server
@@ -44,9 +44,9 @@ npm init -y
 npm i --save express parse parse-server
 ```
 
-### 3. Setup express และ parse-server โดยดูตัวอย่างโค้ด [`./index.js`](index.js)
+### 3. Setup express และ parse-server โดยดูตัวอย่าง Code [`./index.js`](index.js)
 
-3.1 ในตัวอย่างโค้ดดังกล่าวจะเห็นว่าบันทัดที่ [[5]](https://github.com/AnechaS/mit-web-dev/blob/master/express-parse-server/index.js#L5) ผมได้สร้างไฟล์ config แยก เพราะไม่อยากให้รหัสลับโดนเปิดเผย ดังนั้นจะต้องสร้างไฟล์ `config.js` และใส่ข้อมูลตามนี้
+3.1 ในตัวอย่าง Code ดังกล่าวจะเห็นว่าบรรทัดที่ [[5]](https://github.com/AnechaS/mit-web-dev/blob/master/express-parse-server/index.js#L5) ผมได้สร้างไฟล์ config แยก เพราะไม่อยากให้รหัสลับโดนเปิดเผย ดังนั้นจะต้องสร้างไฟล์ `config.js` และใส่ข้อมูลตามนี้
 
 ```javascript
 module.exports = {
@@ -59,7 +59,7 @@ module.exports = {
 };
 ```
 
-3.2 สร้างโฟรเดอร์ cloud ตาม config ของ parse server ในบันทัดที่ [[21]](https://github.com/AnechaS/mit-web-dev/blob/master/express-parse-server/index.js#L21) ดูตัวอย่าง `[./cloud](https://github.com/AnechaS/mit-web-dev/tree/master/express-parse-server/cloud)`
+3.2 สร้างโฟลเดอร์ cloud ตาม config ของ parse server ในบรรทัดที่ [[21]](https://github.com/AnechaS/mit-web-dev/blob/master/express-parse-server/index.js#L21) ดูตัวอย่าง `[./cloud](https://github.com/AnechaS/mit-web-dev/tree/master/express-parse-server/cloud)`
 
 3.3 ทดลอง Run Server
 
@@ -69,7 +69,7 @@ $ node ./index.js
 
 ### 4. Setup Parse Dashboard
 
-> **คำแนะนำ:** ไม่ควรเปิด Parse Dashboard เป็น Public (เปิดให้คนอื่นสามารถเข้ามาได้เหมือนเว็ปไซต์) เพราะอาจทำให้คนอื่นรู้รหัสรับของเรา
+> **คำแนะนำ:** ไม่ควรเปิด Parse Dashboard เป็น Public (เปิดให้คนอื่นสามารถเข้ามาได้เหมือนเว็บไซต์) เพราะอาจทำให้คนอื่นรู้รหัสลับของเรา
 
 4.1 ติดตั้ง Library
 
