@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
+import { Redirect, withRouter } from 'react-router-dom';
 
-export default class LoginPage extends Component {
+class LoginPage extends Component {
+  login = () => {
+    this.props.history.replace('/');
+    this.props.loggedIn()
+  }
+
   render() {
+    if (this.props.isAuthorized) {
+      return <Redirect to="/" />  
+    }
+
     return (
       <div>
         <h3>Login Page</h3>
 
-        <button onClick={() => this.props.loggedIn()}>Log in</button>
+        <button onClick={this.login}>Log in</button>
       </div>
     );
   }
 }
+
+export default withRouter(LoginPage);
