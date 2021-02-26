@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 
 // setup bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'jquery';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 
 // Import module เนื้อหาที่ 1
