@@ -9,8 +9,8 @@
     ],
     "users": [
         {
-            "user": "demo",
-            "pass": "demo",
+            "user": "root",
+            "pass": "6110121014",
             "apps": [
                 {
                     "appId": "qwertyuio"
