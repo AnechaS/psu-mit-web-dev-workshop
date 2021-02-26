@@ -8,56 +8,40 @@ import {
 } from 'react-router-dom';
 
 import LoginPage from './LoginPage';
-import RegisterPage from '../c5-auth/pages/auth/RegisterPage';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
-
-function PrivateRoute({ isAuthorized, children, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        isAuthorized ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/login',
-              state: { from: location },
-            }}
-          />
-        )
-      }
-    />
-  );
-}
 
 export default class App extends Component {
   state = {
     isAuthorized: false,
-    user: null,
   };
 
-  loggedIn = () => {
+  login= () => {
     this.setState({
       isAuthorized: true,
-      user: 'Batman',
     });
   };
 
   logout = () => {
     this.setState({
       isAuthorized: false,
-      user: null,
     });
   };
 
   render() {
-    const { isAuthorized, user } = this.state;
+    const { isAuthorized } = this.state;
 
     return (
       <Router>
         <div>
+          {isAuthorized && (
+            <button
+              onClick={this.logout}
+            >
+              Log out
+            </button>
+          )}
+
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -68,29 +52,48 @@ export default class App extends Component {
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
           </ul>
           <hr />
 
           <Switch>
-            <Route path="/login">
-              <LoginPage isAuthorized={isAuthorized} loggedIn={this.loggedIn} />
-            </Route>
+            {/* Route auth page */}
+            {!isAuthorized && (
+              <Route>
+                <Switch>
+                  <Route path="/login">
+                    <LoginPage login={this.login} />
+                  </Route>
+                  <Route path="/register">
+                    <div>
+                      <h3>Register Page</h3>
+                    </div>
+                  </Route>
+                  <Redirect to="/login" />
+                </Switch>
+              </Route>
+            )}
 
-            <Route path="/register">
-              <RegisterPage />
-            </Route>
-
-            <Route path="/about">
-              <AboutPage />
-            </Route>
-
-            <PrivateRoute isAuthorized={isAuthorized} path="/">
-              <HomePage />
-            </PrivateRoute>
-
-            <Route path="*">
-              <div>Not Found Page.</div>
-            </Route>
+            {/* Route private pages */}
+            {!isAuthorized ? (
+              <Redirect to="/login" />
+            ) : (
+              <Route>
+                <Switch>
+                  <Route exact path="/">
+                    <HomePage />
+                  </Route>
+                  <Route path="/about">
+                    <AboutPage />
+                  </Route>
+                  <Route path="*">
+                    <div>Not Found Page.</div>
+                  </Route>
+                </Switch>
+              </Route>
+            )}
           </Switch>
         </div>
       </Router>
