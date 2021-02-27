@@ -98,7 +98,7 @@ class RegisterPage extends Component {
               type="text"
               id="username"
               name="username"
-              placeholder="typing your username"
+              placeholder="Enter username"
               className="form-control"
               onChange={this.handleInputChange}
             />
@@ -111,7 +111,7 @@ class RegisterPage extends Component {
               id="email"
               name="email"
               className="form-control"
-              placeholder="typing your email"
+              placeholder="Enter email"
               onChange={this.handleInputChange}
             />
           </div>
@@ -123,7 +123,7 @@ class RegisterPage extends Component {
               id="password"
               name="password"
               className="form-control"
-              placeholder="typing your password"
+              placeholder="Enter password"
               onChange={this.handleInputChange}
             />
           </div>
