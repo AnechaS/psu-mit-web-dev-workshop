@@ -70,7 +70,7 @@ $ npm i react-router-dom
 #### Code:
 - [`src/c4-route-auth/App.js`](./src/c4-route-auth/App.js)
 
-### 5. Auth And Todo
+### 5. Auth and Todo App
 
 #### Install:
 
