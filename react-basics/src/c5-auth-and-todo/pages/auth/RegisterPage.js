@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import * as authActions from '../../actions/auth';
 
-class LoginPage extends Component {
+class RegisterPage extends Component {
   state = {
     loading: false,
     error: '',
     username: '',
+    email: '',
     password: '',
   };
 
-  handleUsernameChange = (event) => {
-    this.setState({ username: event.target.value.trim() });
-  };
-
-  handlePasswordChange = (event) => {
-    this.setState({ password: event.target.value.trim() });
+  handleInputChange = (event) => {
+    this.setState({ [event.currentTarget.name]: event.target.value.trim() });
   };
 
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { username, password } = this.state;
-    const { history, dispatch } = this.props;
+    const { username, password, email } = this.state;
+    const { login, history } = this.props;
 
     this.setState({
       error: '',
@@ -36,32 +33,35 @@ class LoginPage extends Component {
         throw new Error('username is required');
       }
 
+      if (!email) {
+        throw new Error('email is required');
+      }
+
       if (!password) {
         throw new Error('password is required');
       }
 
-      const response = await axios.post('/login', {
+      const { data } = await axios.post('/users', {
         username,
+        email,
         password,
       });
 
-      const { sessionToken, ...user } = response.data;
-      
-      // delete field ACL in user object.
-      delete user.ACL;
+      this.setState({ loading: false });
 
-      this.setState({
-        loading: false,
-      });
+      const { sessionToken, ...o } = data;
+      const user = {
+        ...o,
+        username,
+        email,
+      };
 
-      dispatch(authActions.login(sessionToken, user));
-
-      // redirect to home page.
+      login(sessionToken, user);
       history.push('/');
     } catch (error) {
       let msgError = error.message;
       if (Object(error.response).hasOwnProperty('status')) {
-        if (error.response.status === 404 && error.response.data.error) {
+        if (error.response.status === 400) {
           msgError = error.response.data.error;
         }
       }
@@ -84,7 +84,7 @@ class LoginPage extends Component {
           style={{ maxWidth: 330 }}
           onSubmit={this.handleSubmit}
         >
-          <h3 className="text-left">Sign in page</h3>
+          <h3 className="text-left">Sign up page</h3>
 
           {error && (
             <div className="alert alert-danger" role="alert">
@@ -100,7 +100,19 @@ class LoginPage extends Component {
               name="username"
               placeholder="typing your username"
               className="form-control"
-              onChange={this.handleUsernameChange}
+              onChange={this.handleInputChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="username">Email</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              className="form-control"
+              placeholder="typing your email"
+              onChange={this.handleInputChange}
             />
           </div>
 
@@ -110,9 +122,9 @@ class LoginPage extends Component {
               type="password"
               id="password"
               name="password"
-              placeholder="typing your password"
               className="form-control"
-              onChange={this.handlePasswordChange}
+              placeholder="typing your password"
+              onChange={this.handleInputChange}
             />
           </div>
 
@@ -121,7 +133,7 @@ class LoginPage extends Component {
             className="btn btn-primary mr-3"
             disabled={loading}
           >
-            Sign in
+            Sign up
             {loading && (
               <span
                 className="ml-1 spinner-border spinner-border-sm"
@@ -131,11 +143,13 @@ class LoginPage extends Component {
             )}
           </button>
 
-          <Link to="/register">Sign up</Link>
+          <Link to="/login">Sign in</Link>
         </form>
       </div>
     );
   }
 }
 
-export default connect()(withRouter(LoginPage));
+const mapDispatchToProps = { login: authActions.login };
+
+export default connect(null, mapDispatchToProps)(withRouter(RegisterPage));

@@ -18,6 +18,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.js';
 // import App from "./c4-route-auth/App";
 
 // Import module เนื้อหาที่ 5
-import App from "./c5-auth/App";
+import App from "./c5-auth-and-todo/App";
 
 ReactDOM.render(<App />, document.getElementById("root"));

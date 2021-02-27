@@ -79,7 +79,7 @@ $ npm i redux react-redux redux-persist axios
 ```
 
 #### Code:
-- [`src/c5-auth/App.js`](./src/c5-auth/App.js)
+- [`src/c5-auth-and-todo/App.js`](./src/c5-auth-and-todo/App.js)
 
 #### Docs:
 - [redux](https://redux.js.org/introduction/getting-started)
